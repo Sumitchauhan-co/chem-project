@@ -101,6 +101,7 @@ export default function RootLayout({
     return (
         <html
             lang="en"
+            suppressHydrationWarning
             className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
         >
             <head>
@@ -110,11 +111,11 @@ export default function RootLayout({
                 />
             </head>
             <body className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
-                <main className="flex-grow">{children}</main>
+                <main className="grow">{children}</main>
 
                 <footer className="flex gap-2 justify-center items-center py-6 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
                     <img
-                        className="h-5 w-5 invert dark:invert-0"
+                        className="h-5 w-5 invert"
                         src="/logo.png"
                         alt="Chemistry Project Logo"
                     />
