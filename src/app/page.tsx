@@ -109,7 +109,7 @@ const Page = () => {
         <>
             {!loading && (
                 <div className="w-full max-w-7xl mx-auto p-2 sm:p-4 flex gap-5 flex-col relative">
-                    <div className="absolute left-5 top-5">
+                    <div className="hidden sm:block absolute left-5 top-5">
                         <Image
                             className="invert"
                             src="/logo.png"
@@ -142,7 +142,7 @@ const Page = () => {
                         </video>
                     </div>
                     <h1 className="text-2xl sm:text-4xl text-center my-10 font-bold">
-                        <span className="p-2 border-b-2">
+                        <span className="p-2 border-b-2 leading-relaxed">
                             Periodic Table of the Elements
                         </span>
                     </h1>

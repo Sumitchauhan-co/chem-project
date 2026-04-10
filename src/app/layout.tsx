@@ -75,7 +75,12 @@ export default function RootLayout({
             <body className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
                 <main className="flex-grow">{children}</main>
 
-                <footer className="py-6 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
+                <footer className="flex gap-2 justify-center items-center py-6 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
+                    <img
+                    className='h-5 w-5 invert'
+                        src="/logo.png"
+                        alt="logo"
+                    />
                     <p>
                         © {new Date().getFullYear()} Chemistry Project • Built
                         with Next.js
