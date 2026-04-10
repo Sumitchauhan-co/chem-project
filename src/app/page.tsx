@@ -21,6 +21,7 @@ type ElementType = {
         url: string;
         attribution: string;
     };
+    electron_configuration_semantic: string;
 };
 
 const getColorClass = (category: string) => {
@@ -148,7 +149,7 @@ const Page = () => {
                     </h1>
 
                     <div className="overflow-x-auto pb-8 scrollbar-hide">
-                        <div className="grid grid-cols-18 gap-1 min-w-[1000px] md:min-w-full overflow-hidden">
+                        <div className="grid grid-cols-18 gap-1 min-w-[1000px] overflow-hidden">
                             <div className="hidden sm:flex col-start-3 col-end-13 row-start-1 row-end-4 p-4 pointer-events-none overflow-hidden">
                                 <div
                                     className={`transition-all duration-300 transform ${hoveredElement ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -259,7 +260,7 @@ const Page = () => {
 
                                 {/* Content Container */}
                                 <div>
-                                    <div className="flex sm:flex-row flex-col items-baseline gap-4 mb-4">
+                                    <div className="flex lg:flex-row flex-col items-baseline gap-4 mb-4">
                                         <h2 className="text-5xl font-black">
                                             {selectedElement.name}
                                         </h2>
@@ -267,8 +268,15 @@ const Page = () => {
                                             Atomic No. {selectedElement.number}
                                         </span>
                                     </div>
-                                    <div className="inline-block px-3 py-1 rounded-full text-sm font-bold bg-white dark:bg-zinc-800 border mb-6 capitalize">
-                                        {selectedElement.category}
+                                    <div className="flex gap-2">
+                                        <div className="inline-block px-3 py-1 rounded-full text-sm font-bold bg-white dark:bg-zinc-800 border mb-6 capitalize">
+                                            {selectedElement.category}
+                                        </div>
+                                        <div className="text-lg font-mono opacity-50">
+                                            {
+                                                selectedElement.electron_configuration_semantic
+                                            }
+                                        </div>
                                     </div>
                                     <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-300 mb-6">
                                         {selectedElement.summary}
