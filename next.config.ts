@@ -1,9 +1,10 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-    /* config options here */
-    // devIndicators: false
+    compress: true,
+    
     images: {
+        formats: ['image/avif', 'image/webp'],
         remotePatterns: [
             {
                 protocol: 'https',
@@ -22,10 +23,13 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'images-of-elements.com', // Added this for Nobelium and others
+                hostname: 'images-of-elements.com',
                 pathname: '**',
             },
         ],
+    },
+    experimental: {
+        optimizePackageImports: ['lucide-react', 'react-icons'],
     },
 };
 

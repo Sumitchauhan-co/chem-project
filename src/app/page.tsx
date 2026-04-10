@@ -109,6 +109,7 @@ const Page = () => {
                 <div className="w-full max-w-7xl mx-auto p-2 sm:p-4 flex gap-5 flex-col relative">
                     <div className="hidden sm:block absolute left-5 top-5">
                         <Image
+                            fetchPriority="high"
                             className="invert"
                             src="/logo.png"
                             width={50}
@@ -129,7 +130,8 @@ const Page = () => {
                             loop
                             muted
                             playsInline
-                            preload="auto"
+                            preload="metadata"
+                            poster="/hero2.png"
                             className="w-full h-full blur-xs"
                         >
                             <source
