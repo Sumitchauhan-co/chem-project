@@ -18,15 +18,19 @@ export const viewport: Viewport = {
     initialScale: 1,
 };
 
-const siteUrl = process.env.NODE_ENV === 'production'
-    ? 'https://chem-project-five.vercel.app'
-    : 'http://localhost:3000';
+const siteUrl =
+    process.env.NODE_ENV === 'production'
+        ? 'https://chem-project-five.vercel.app'
+        : 'http://localhost:3000';
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
     title: {
         default: 'Interactive Periodic Table | Chemistry Learning Tool',
-        template: '%s | Chemistry Project'
+        template: '%s | Chemistry Project',
+    },
+    verification: {
+        google: 'tyueah39A9AhckpWrAfMKH6B5js_mAkoAHzEeHzxiko',
     },
     description:
         'A comprehensive digital periodic table for chemistry students. Explore atomic mass, electron configurations, and element properties.',
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
         'Chemical Elements Guide',
         'Next.js Chemistry App',
         'Science Education Tool',
-        'Interactive Science Project'
+        'Interactive Science Project',
     ],
     authors: [{ name: 'Sumit Chauhan' }],
     alternates: {
@@ -63,7 +67,8 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Interactive Periodic Table | Chemistry Learning Tool',
-        description: 'Explore the building blocks of the universe with this interactive periodic table.',
+        description:
+            'Explore the building blocks of the universe with this interactive periodic table.',
         images: ['/og-image.png'],
     },
 };
@@ -77,7 +82,8 @@ export default function RootLayout({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: 'Interactive Periodic Table',
-        description: 'A digital tool to explore chemical elements, atomic masses, and properties.',
+        description:
+            'A digital tool to explore chemical elements, atomic masses, and properties.',
         operatingSystem: 'Any',
         applicationCategory: 'EducationApplication',
         browserRequirements: 'requires HTML5 support',
