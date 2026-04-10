@@ -73,8 +73,6 @@ const Page = () => {
 
         //             const result = await res.json();
         //             setTableData(result.data);
-
-        //             console.log(result.data);
         //         } catch (err) {
         //             console.error('Error fetching elements:', err);
         //         } finally {

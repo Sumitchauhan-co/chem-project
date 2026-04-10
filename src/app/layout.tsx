@@ -18,15 +18,18 @@ export const viewport: Viewport = {
     initialScale: 1,
 };
 
+const siteUrl = process.env.NODE_ENV === 'production'
+    ? 'https://chem-project-five.vercel.app'
+    : 'http://localhost:3000';
+
 export const metadata: Metadata = {
-    metadataBase: new URL(
-        process.env.NODE_ENV === 'production'
-            ? 'https://your-chemistry-project.vercel.app' //
-            : 'http://localhost:3000',
-    ),
-    title: 'Interactive Periodic Table | Chemistry Learning Tool',
+    metadataBase: new URL(siteUrl),
+    title: {
+        default: 'Interactive Periodic Table | Chemistry Learning Tool',
+        template: '%s | Chemistry Project'
+    },
     description:
-        'A comprehensive digital periodic table for chemistry students. Explore atomic mass, electron configurations, and element properties in real-time.',
+        'A comprehensive digital periodic table for chemistry students. Explore atomic mass, electron configurations, and element properties.',
     keywords: [
         'Chemistry Project',
         'Periodic Table of Elements',
@@ -34,14 +37,33 @@ export const metadata: Metadata = {
         'Chemical Elements Guide',
         'Next.js Chemistry App',
         'Science Education Tool',
+        'Interactive Science Project'
     ],
     authors: [{ name: 'Sumit Chauhan' }],
-
+    alternates: {
+        canonical: '/', // Prevents duplicate content issues
+    },
     openGraph: {
         title: 'Interactive Periodic Table | Chemistry Project',
         description:
             'Detailed chemical element data and interactive table for science students.',
+        url: siteUrl,
+        siteName: 'Chemistry Periodic Table',
         type: 'website',
+        locale: 'en_US',
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Interactive Periodic Table Preview',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Interactive Periodic Table | Chemistry Learning Tool',
+        description: 'Explore the building blocks of the universe with this interactive periodic table.',
         images: ['/og-image.png'],
     },
 };
@@ -53,12 +75,21 @@ export default function RootLayout({
 }>) {
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'EducationalOccupationalCredential',
+        '@type': 'SoftwareApplication',
         name: 'Interactive Periodic Table',
-        description:
-            'An interactive tool to study chemical elements and their properties.',
-        educationalLevel: 'University',
-        teaches: 'Chemistry and Atomic Physics',
+        description: 'A digital tool to explore chemical elements, atomic masses, and properties.',
+        operatingSystem: 'Any',
+        applicationCategory: 'EducationApplication',
+        browserRequirements: 'requires HTML5 support',
+        author: {
+            '@type': 'Person',
+            name: 'Sumit Chauhan',
+        },
+        offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD',
+        },
     };
 
     return (
@@ -76,10 +107,11 @@ export default function RootLayout({
                 <main className="flex-grow">{children}</main>
 
                 <footer className="flex gap-2 justify-center items-center py-6 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
+                    {/* Ensure logo.png actually exists in /public or this will break SEO audits */}
                     <img
-                    className='h-5 w-5 invert'
+                        className="h-5 w-5 invert dark:invert-0"
                         src="/logo.png"
-                        alt="logo"
+                        alt="Chemistry Project Logo"
                     />
                     <p>
                         © {new Date().getFullYear()} Chemistry Project • Built
