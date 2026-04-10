@@ -141,7 +141,7 @@ const Page = () => {
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <h1 className="text-2xl sm:text-4xl text-center my-10 font-bold">
+                    <h1 className="text-2xl sm:text-4xl text-center sm:mb-0 mb-10 my-10 font-bold">
                         <span className="p-2 border-b-2 leading-relaxed">
                             Periodic Table of the Elements
                         </span>

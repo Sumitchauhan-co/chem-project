@@ -113,7 +113,6 @@ export default function RootLayout({
                 <main className="flex-grow">{children}</main>
 
                 <footer className="flex gap-2 justify-center items-center py-6 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
-                    {/* Ensure logo.png actually exists in /public or this will break SEO audits */}
                     <img
                         className="h-5 w-5 invert dark:invert-0"
                         src="/logo.png"
